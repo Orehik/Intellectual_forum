@@ -3,7 +3,7 @@ import { BuildOptions } from "./types/config";
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
-import {buildDevServer} from "./buildDevServer";
+import { buildDevServer } from "./buildDevServer";
 
 // функция инициализации webpack.config с динамическими путями до файлов и до бандла
 export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration => {
@@ -19,7 +19,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     },
     plugins: buildPlugins(options),
     module: {
-      rules: buildLoaders(),
+      rules: buildLoaders(options),
     },
     resolve: buildResolvers(),
     devtool: isDev ? "inline-source-map" : undefined,
