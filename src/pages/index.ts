@@ -1,2 +1,2 @@
-export { AboutPageAsync } from "./AboutPage/AboutPage.async";
-export { MainPageAsync } from "./MainPage/MainPage.async";
+export { AboutPage } from "pages/AboutPage";
+export { MainPage } from "pages/MainPage";

@@ -5,6 +5,7 @@ import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
 import { buildDevServer } from "./buildDevServer";
 
+
 // функция инициализации webpack.config с динамическими путями до файлов и до бандла
 export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration => {
   const { paths, mode, isDev } = options;
@@ -21,7 +22,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     module: {
       rules: buildLoaders(options),
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     devtool: isDev ? "inline-source-map" : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
   };
